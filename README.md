@@ -1,6 +1,6 @@
 # Keynote Design
 
-A Claude Code skill for generating professional, insight-driven HTML presentations — from a topic, reference material, or both.
+A Claude Code plugin for generating professional, insight-driven HTML presentations — from a topic, reference material, or both.
 
 ## What This Does
 
@@ -19,22 +19,46 @@ Focuses on **content quality** — every slide delivers a clear insight with evi
 
 ## Installation
 
-### Option A: Copy skill files
+### Option A: Add as project skill (recommended)
+
+Clone into your project's `.claude/skills/` directory:
 
 ```bash
-# Create the skill directory
-mkdir -p ~/.claude/skills/keynote-design
-
-# Clone and copy
-git clone https://github.com/anxiong2025/keynote-design.git /tmp/keynote-design
-cp /tmp/keynote-design/{SKILL.md,style-presets.md,viewport-base.css,animation-patterns.md} ~/.claude/skills/keynote-design/
+git clone https://github.com/anxiong2025/keynote-design.git
+cp -r keynote-design/skills/keynote-design .claude/skills/
 ```
 
-### Option B: Clone directly
+### Option B: Add as global skill
+
+Clone into your home `.claude/skills/` directory so it's available in all projects:
 
 ```bash
-git clone https://github.com/anxiong2025/keynote-design.git ~/.claude/skills/keynote-design
+mkdir -p ~/.claude/skills
+git clone https://github.com/anxiong2025/keynote-design.git
+cp -r keynote-design/skills/keynote-design ~/.claude/skills/
 ```
+
+## Plugin Structure
+
+This repo follows the official [Claude Code plugin format](https://github.com/anthropics/claude-code):
+
+```
+keynote-design/
+├── .claude-plugin/
+│   └── plugin.json              # Plugin metadata
+├── .claude/
+│   └── skills/
+│       └── keynote-design/      # → symlink to skills/keynote-design
+├── skills/
+│   └── keynote-design/
+│       ├── SKILL.md             # Core workflow + slide types + HTML template
+│       ├── style-presets.md     # 8 curated visual presets (fonts/colors/signatures)
+│       ├── viewport-base.css    # Mandatory responsive CSS (clamp, dvh, breakpoints)
+│       └── animation-patterns.md # Entrance/transition/background animations
+└── README.md
+```
+
+**Progressive disclosure** — `SKILL.md` is a concise map; supporting files are loaded on-demand only when needed.
 
 ## Usage
 
@@ -80,17 +104,6 @@ The skill will:
 | Paper Minimal | Refined, editorial, quiet | Academic, design critique |
 | Electric Gradient | Energetic, creative, vivid | Product launches, creative |
 | Ocean Wave | Technical but warm, modern | Engineering talks, dev conf |
-
-## Architecture
-
-This skill uses **progressive disclosure** — the main `SKILL.md` is a concise map, with supporting files loaded on-demand only when needed:
-
-| File | Purpose | Loaded When |
-|------|---------|-------------|
-| `SKILL.md` | Core workflow, slide types, HTML template | Always |
-| `style-presets.md` | 8 curated visual presets with fonts/colors/signatures | Choosing theme |
-| `viewport-base.css` | Mandatory responsive CSS (clamp, dvh, breakpoints) | Generating HTML |
-| `animation-patterns.md` | Entrance/transition/background animation reference | Generating HTML |
 
 ## Content Quality Philosophy
 

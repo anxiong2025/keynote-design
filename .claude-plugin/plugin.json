@@ -1,0 +1,8 @@
+{
+  "name": "keynote-design",
+  "description": "AI-powered presentation generator with Apple Keynote-style themes, animations, and multiple skill presets. Generate professional slide decks from topics or reference materials.",
+  "version": "1.0.0",
+  "author": {
+    "name": "robert"
+  }
+}
