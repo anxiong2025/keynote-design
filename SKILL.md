@@ -835,10 +835,20 @@ If the user says "from file.md" or provides reference content:
 
 ## Output
 
-Write to user's working directory. Default: `presentation.html`. Then tell the user:
+Write to user's working directory. Default: `presentation.html`.
+
+After writing the file, **automatically open it in the browser**:
+
+```bash
+open presentation.html    # macOS
+# xdg-open presentation.html  # Linux
+# start presentation.html     # Windows
+```
+
+Then tell the user:
 
 ```
-Open presentation.html in your browser, press F for fullscreen.
+Presentation ready! Press F for fullscreen.
 Controls: Space/→ next, ← back, P speaker mode, G slide overview, Esc exit.
 ```
 
