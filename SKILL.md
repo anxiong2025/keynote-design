@@ -837,20 +837,14 @@ If the user says "from file.md" or provides reference content:
 
 Write to user's working directory. Default: `presentation.html`.
 
-After writing the file, **automatically open it in the browser**:
-
-```bash
-open presentation.html    # macOS
-# xdg-open presentation.html  # Linux
-# start presentation.html     # Windows
-```
-
-Then tell the user:
+Then tell the user and ask if they want to preview:
 
 ```
-Presentation ready! Press F for fullscreen.
-Controls: Space/→ next, ← back, P speaker mode, G slide overview, Esc exit.
+Presentation ready! Would you like me to open it in the browser?
+Controls: F fullscreen, Space/→ next, ← back, P speaker mode, G overview.
 ```
+
+If yes, open with: `open presentation.html` (macOS) / `xdg-open` (Linux) / `start` (Windows).
 
 ## Defaults
 
