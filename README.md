@@ -1,0 +1,114 @@
+# Keynote Design
+
+A Claude Code skill for generating professional, insight-driven HTML presentations — from a topic, reference material, or both.
+
+## What This Does
+
+**Keynote Design** generates Apple Keynote-quality HTML presentations with zero dependencies. Single HTML files with inline CSS/JS that open in any browser.
+
+Focuses on **content quality** — every slide delivers a clear insight with evidence, not generic summaries.
+
+### Key Features
+
+- **Zero Dependencies** — Single HTML files. No npm, no build tools, no frameworks.
+- **Content Quality First** — Every title is an opinion, every point has evidence, every slide earns its place.
+- **11 Slide Types** — Title, Content, Quote, Two-Column, Diagram (5 styles), Stats, Hero Image, Hero Video, Code, Section, Closing
+- **8 Visual Presets** — Midnight, Neon Signal, Deep Indigo, Dark Botanical, Clean White, Paper Minimal, Electric Gradient, Ocean Wave
+- **Build Animations** — Step-by-step reveals, staggered entrances, Ken Burns, Magic Move (FLIP transitions)
+- **Responsive** — clamp()-based typography, dvh viewport units, breakpoints from 500px to 1440px+
+
+## Installation
+
+### Option A: Copy skill files
+
+```bash
+# Create the skill directory
+mkdir -p ~/.claude/skills/keynote-design
+
+# Clone and copy
+git clone https://github.com/anxiong2025/keynote-design.git /tmp/keynote-design
+cp /tmp/keynote-design/{SKILL.md,style-presets.md,viewport-base.css,animation-patterns.md} ~/.claude/skills/keynote-design/
+```
+
+### Option B: Clone directly
+
+```bash
+git clone https://github.com/anxiong2025/keynote-design.git ~/.claude/skills/keynote-design
+```
+
+## Usage
+
+In Claude Code, type:
+
+```
+/keynote-design "Scaling AI Skills Across an Enterprise"
+```
+
+Or generate from reference material:
+
+```
+/keynote-design from notes.md
+```
+
+The skill will:
+1. Analyze your content and plan a narrative arc
+2. Ask which visual preset matches your audience
+3. Generate a complete self-contained HTML file
+4. Open it in your browser
+
+### Navigation
+
+| Key | Action |
+|-----|--------|
+| `→` / `Space` | Next slide or build step |
+| `←` | Previous slide |
+| `F` | Fullscreen |
+| `G` | Slide overview grid |
+| `L` | Laser pointer |
+| `P` | Speaker notes |
+| `Esc` | Exit fullscreen |
+
+## Visual Presets
+
+| Preset | Vibe | Best For |
+|--------|------|----------|
+| Midnight | Dramatic, Apple-style, pure black | Keynotes, vision talks |
+| Neon Signal | Bold, futuristic, high-energy | Startup pitches, demos |
+| Deep Indigo | Thoughtful, technical, intellectual | Tech shares, deep dives |
+| Dark Botanical | Elegant, warm, premium | Design reviews, brand talks |
+| Clean White | Professional, clear, trustworthy | Business reports, formal |
+| Paper Minimal | Refined, editorial, quiet | Academic, design critique |
+| Electric Gradient | Energetic, creative, vivid | Product launches, creative |
+| Ocean Wave | Technical but warm, modern | Engineering talks, dev conf |
+
+## Architecture
+
+This skill uses **progressive disclosure** — the main `SKILL.md` is a concise map, with supporting files loaded on-demand only when needed:
+
+| File | Purpose | Loaded When |
+|------|---------|-------------|
+| `SKILL.md` | Core workflow, slide types, HTML template | Always |
+| `style-presets.md` | 8 curated visual presets with fonts/colors/signatures | Choosing theme |
+| `viewport-base.css` | Mandatory responsive CSS (clamp, dvh, breakpoints) | Generating HTML |
+| `animation-patterns.md` | Entrance/transition/background animation reference | Generating HTML |
+
+## Content Quality Philosophy
+
+Great presentations are not summaries — they are arguments.
+
+- **Titles are opinions, not labels.** "Skills Cut Deploy Time 60%" not "About Deployment"
+- **Points need evidence.** Data, examples, comparisons — never "improves efficiency"
+- **Narrative arc.** Problem → Context → Solution → Proof → Action
+- **So What test.** Every point must answer why the audience should care
+
+## Related
+
+- [keynote-design-web](https://github.com/anxiong2025/keynote-design-web) — Web app version with visual editor, drag-and-drop, and live presentation mode
+
+## Requirements
+
+- [Claude Code](https://claude.ai/claude-code) CLI
+
+## License
+
+MIT
