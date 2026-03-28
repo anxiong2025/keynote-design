@@ -20,16 +20,21 @@ Focuses on **content quality** — every slide delivers a clear insight with evi
 ## Installation
 
 ```bash
+npx skills add anxiong2025/keynote-design
+```
+
+Select **Claude Code** when prompted. That's it.
+
+<details>
+<summary>Alternative: manual git clone</summary>
+
+```bash
 git clone https://github.com/anxiong2025/keynote-design.git ~/.claude/skills/keynote-design
 ```
 
-That's it. One command.
+Update: `cd ~/.claude/skills/keynote-design && git pull`
 
-### Update
-
-```bash
-cd ~/.claude/skills/keynote-design && git pull
-```
+</details>
 
 ## Usage
 
