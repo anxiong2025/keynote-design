@@ -23,7 +23,13 @@ Focuses on **content quality** — every slide delivers a clear insight with evi
 npx skills add anxiong2025/keynote-design
 ```
 
-Select **Claude Code** when prompted. That's it.
+When prompted:
+1. Select **Claude Code** (or any other agent you use)
+2. Choose **symlink** (recommended — updates automatically with `git pull`)
+
+Done. Open Claude Code and start using it.
+
+> Also works with Cursor, Windsurf, Copilot, and [40+ other agents](https://github.com/vercel-labs/skills).
 
 <details>
 <summary>Alternative: manual git clone</summary>
@@ -32,7 +38,7 @@ Select **Claude Code** when prompted. That's it.
 git clone https://github.com/anxiong2025/keynote-design.git ~/.claude/skills/keynote-design
 ```
 
-Update: `cd ~/.claude/skills/keynote-design && git pull`
+Update anytime: `cd ~/.claude/skills/keynote-design && git pull`
 
 </details>
 
