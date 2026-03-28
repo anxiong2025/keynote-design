@@ -1,6 +1,6 @@
 # Keynote Design
 
-A Claude Code plugin for generating professional, insight-driven HTML presentations — from a topic, reference material, or both.
+A Claude Code skill for generating professional, insight-driven HTML presentations — from a topic, reference material, or both.
 
 ## What This Does
 
@@ -12,60 +12,31 @@ Focuses on **content quality** — every slide delivers a clear insight with evi
 
 - **Zero Dependencies** — Single HTML files. No npm, no build tools, no frameworks.
 - **Content Quality First** — Every title is an opinion, every point has evidence, every slide earns its place.
-- **11 Slide Types** — Title, Content, Quote, Two-Column, Diagram (5 styles), Stats, Hero Image, Hero Video, Code, Section, Closing
+- **11 Slide Types** — Title, Content, Quote, Two-Column, Diagram (5 styles), Stats, Hero Image, Code, Section, Closing
 - **8 Visual Presets** — Midnight, Neon Signal, Deep Indigo, Dark Botanical, Clean White, Paper Minimal, Electric Gradient, Ocean Wave
 - **Build Animations** — Step-by-step reveals, staggered entrances, Ken Burns, Magic Move (FLIP transitions)
 - **Responsive** — clamp()-based typography, dvh viewport units, breakpoints from 500px to 1440px+
 
 ## Installation
 
-### Option A: Add as project skill (recommended)
+```bash
+git clone https://github.com/anxiong2025/keynote-design.git ~/.claude/skills/keynote-design
+```
 
-Clone into your project's `.claude/skills/` directory:
+That's it. One command.
+
+### Update
 
 ```bash
-git clone https://github.com/anxiong2025/keynote-design.git
-cp -r keynote-design/skills/keynote-design .claude/skills/
+cd ~/.claude/skills/keynote-design && git pull
 ```
-
-### Option B: Add as global skill
-
-Clone into your home `.claude/skills/` directory so it's available in all projects:
-
-```bash
-mkdir -p ~/.claude/skills
-git clone https://github.com/anxiong2025/keynote-design.git
-cp -r keynote-design/skills/keynote-design ~/.claude/skills/
-```
-
-## Plugin Structure
-
-This repo follows the official [Claude Code plugin format](https://github.com/anthropics/claude-code):
-
-```
-keynote-design/
-├── .claude-plugin/
-│   └── plugin.json              # Plugin metadata
-├── .claude/
-│   └── skills/
-│       └── keynote-design/      # → symlink to skills/keynote-design
-├── skills/
-│   └── keynote-design/
-│       ├── SKILL.md             # Core workflow + slide types + HTML template
-│       ├── style-presets.md     # 8 curated visual presets (fonts/colors/signatures)
-│       ├── viewport-base.css    # Mandatory responsive CSS (clamp, dvh, breakpoints)
-│       └── animation-patterns.md # Entrance/transition/background animations
-└── README.md
-```
-
-**Progressive disclosure** — `SKILL.md` is a concise map; supporting files are loaded on-demand only when needed.
 
 ## Usage
 
-In Claude Code, type:
+Open Claude Code in any project directory, then type:
 
 ```
-/keynote-design "Scaling AI Skills Across an Enterprise"
+/keynote-design "AI Agent Architecture"
 ```
 
 Or generate from reference material:
@@ -74,13 +45,13 @@ Or generate from reference material:
 /keynote-design from notes.md
 ```
 
-The skill will:
+Claude will:
 1. Analyze your content and plan a narrative arc
 2. Ask which visual preset matches your audience
 3. Generate a complete self-contained HTML file
 4. Open it in your browser
 
-### Navigation
+### Keyboard Shortcuts (in the generated presentation)
 
 | Key | Action |
 |-----|--------|
@@ -105,6 +76,21 @@ The skill will:
 | Electric Gradient | Energetic, creative, vivid | Product launches, creative |
 | Ocean Wave | Technical but warm, modern | Engineering talks, dev conf |
 
+## How It Works
+
+```
+keynote-design/
+├── SKILL.md               # Core workflow, slide types, HTML template
+├── style-presets.md        # 8 visual presets (fonts, colors, signatures)
+├── viewport-base.css       # Responsive CSS (clamp, dvh, breakpoints)
+├── animation-patterns.md   # Entrance/transition/background animations
+├── .claude-plugin/
+│   └── plugin.json         # Plugin metadata
+└── README.md
+```
+
+**Progressive disclosure** — `SKILL.md` is a concise map; supporting files are loaded on-demand only when needed.
+
 ## Content Quality Philosophy
 
 Great presentations are not summaries — they are arguments.
@@ -116,7 +102,7 @@ Great presentations are not summaries — they are arguments.
 
 ## Related
 
-- [keynote-design-web](https://github.com/anxiong2025/keynote-design-web) — Web app version with visual editor, drag-and-drop, and live presentation mode
+- [keynote-design-web](https://github.com/anxiong2025/keynote-design-web) — Web app version with visual editor and live presentation mode
 
 ## Requirements
 
